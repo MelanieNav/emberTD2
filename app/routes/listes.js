@@ -3,8 +3,18 @@ import Ember from 'ember';
 
 const Listes=Ember.Object.extend({
   selectedDispoItemsIds:[],
+  selectedIncludedItemsIds:[],
+  includedItems:[],
   selectedDispoItems:Ember.computed('selectedDispoItemsIds.[]',function () {
-    
+    return this.get('selectedDispoItemsIds').map(
+      (id)=>this.get('dispoItems').findBy('id',id)
+    );
+
+  }),
+  selectedIncludedItems:Ember.computed('selectedIncludedItemsIds.[]',function(){
+    return this.get('selectedIncludedItemsIds').map(
+      (id)=>this.get('includedItems').findBy('id',id)
+    );
   })
 });
 
@@ -59,8 +69,12 @@ export default Route.extend({
     })
   },
   actions: {
-    addToIncluded: function (items) {
-
+    addTo: function (source,dest,items) {
+      let model=this.modelFor(this.routeName);
+      dest.pushObjects(items);
+      source.removeObjects(items);
+      Ember.set(model,'selectedDispoItemsIds',[]);
+      Ember.set(model,'selectedIncludedItemsIds',[]);
     }
   }
 

@@ -1,15 +1,24 @@
 <div class="row">
   <div class="col">
-  {{multi-select elements = model.dispoItems
-               selectedIds = model.selectedDispoItemsIds}}
+    {{multi-select elements = model.dispoItems
+                   selectedIds = model.selectedDispoItemsIds}}
   </div>
   <div class="col-1">
-    <button {{action "addToIncluded" model.selectedDispoItems}} class="btn btn-primary btn-fluid">
-      {{fa-icon}}
+    <button {{action "addTo" model.dispoItems
+                     model.includedItems
+                     model.selectedDispoItems}}
+      class="btn btn-primary btn-block">
+    {{fa-icon "step-forward"}}
+    </button>
+    <button {{action "addTo" model.dispoItems
+                     model.includedItems
+                     model.dispoItems}}
+      class="btn btn-primary btn-block">
+      {{fa-icon "fast-forward"}}
     </button>
   </div>
   <div class="col">
-  {{multi-select elements = model.includedItems
-               selectedIds = model.selectedIncludedItemsIds}}
+    {{multi-select elements = model.includedItems
+                   selectedIds = model.selectedIncludedItemsIds}}
   </div>
 </div>
