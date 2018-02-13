@@ -18,7 +18,7 @@ export default Component.extend({
     const selectedIds = Ember.$(event.target).val();
     this.set('selectedIds', selectedIds || []);
   },
-  doubleClick(){
+  dblClick(){
     let dblClick=this.get('dblClick');
     if(dblClick)
       this.sendAction(dblClick);
