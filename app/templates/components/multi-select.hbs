@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0/css/bootstrap.min.css">
+{{#each elements as |elm|}}
+  <option value={{elm.id}} selected={{array-contains selectedIds elm.id}}>{{elm.title}}</option>
+{{/each}}
