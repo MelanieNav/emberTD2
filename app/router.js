@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('listes');
+  this.route('step2');
 });
 
 export default Router;

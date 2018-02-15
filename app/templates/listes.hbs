@@ -1,11 +1,14 @@
+<h1>Sélectionnez vos produits</h1>
 <div class="row">
   <div class="col">
+    <label>Produits disponibles :</label>
     {{multi-select elements = model.dispoItems
                    selectedIds = model.selectedDispoItemsIds
     dblClick="dblClick"}}
     {{model.includedItems.length}} produit(s) inclu(s)
   </div>
   <div class="col-1">
+    <br><br>
     <button disabled="{{unless model.selectedDispoItems.length 'disabled' ''}}"
       {{action "addTo" model.dispoItems
                      model.includedItems
@@ -36,7 +39,14 @@
     </button>
   </div>
   <div class="col">
+    <label>Produits à inclure :</label>
     {{multi-select elements = model.includedItems
                    selectedIds = model.selectedIncludedItemsIds}}
   </div>
 </div>
+<a href="http://127.0.0.1:4200/step2">
+  <button disabled="{{unless model.includedItems.length 'disabled' ''}}">
+    Etape suivante
+    {{fa-icon "arrow-circle-right"}}
+  </button>
+</a>

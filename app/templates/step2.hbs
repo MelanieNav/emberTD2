@@ -1,0 +1,18 @@
+<h1>Votre choix</h1>
+<ul>
+  {{#each selectedIncludedItems as |item|}}
+    <li>
+      <a href="{{item.url}}"><img src="{{item.image}}" /></a>
+      <p>{{item.title}}</p>
+    </li>
+  {{else}}
+    Sélection vide
+  {{/each}}
+</ul>
+
+<a href="http://127.0.0.1:4200/listes">
+  <button>
+    Retour au choix précédent
+    {{fa-icon "arrow-circle-left"}}
+  </button>
+</a>
