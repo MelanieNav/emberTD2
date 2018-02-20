@@ -1,8 +1,8 @@
 <h1>Votre choix</h1>
 <ul>
-  {{#each selectedIncludedItems as |item|}}
+  {{#each model.includedItems as |item|}}
     <li>
-      <a href="{{item.url}}"><img src="{{item.image}}" /></a>
+      <a href="{{item.url}}"><img src="{{item.image}}" width="400px" height="200px"/></a>
       <p>{{item.title}}</p>
     </li>
   {{else}}
@@ -10,9 +10,9 @@
   {{/each}}
 </ul>
 
-<a href="http://127.0.0.1:4200/listes">
+{{#link-to 'listes' class="button"}}
   <button>
     Retour au choix précédent
     {{fa-icon "arrow-circle-left"}}
   </button>
-</a>
+{{/link-to}}

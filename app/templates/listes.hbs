@@ -44,9 +44,10 @@
                    selectedIds = model.selectedIncludedItemsIds}}
   </div>
 </div>
-<a href="http://127.0.0.1:4200/step2">
+
+{{#link-to 'step2' class="button"}}
   <button disabled="{{unless model.includedItems.length 'disabled' ''}}">
     Etape suivante
     {{fa-icon "arrow-circle-right"}}
   </button>
-</a>
+{{/link-to}}

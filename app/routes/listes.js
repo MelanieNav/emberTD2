@@ -68,6 +68,11 @@ export default Route.extend({
       ]
     })
   },
+  afterModel(model) {
+    if (model.get('length') === 1) {
+      this.transitionTo('step2', model.get('IncludedItems'));
+    }
+  },
   actions: {
     addTo: function (source,dest,items) {
       let model=this.modelFor(this.routeName);
@@ -78,7 +83,6 @@ export default Route.extend({
     },
     dblClick:function () {
             let dblClick=this.get('dblClick');
-
     }
   }
 
